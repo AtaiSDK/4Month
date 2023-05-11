@@ -1,6 +1,7 @@
 package com.example.a4month.base
 
 import android.os.Bundle
+import android.telephony.mbms.MbmsErrors.InitializationErrors
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ import androidx.viewbinding.ViewBinding
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         _binding = inflate(inflater, container, false)
         return binding.root
     }
@@ -29,6 +31,7 @@ import androidx.viewbinding.ViewBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        init()
         setupUI()
         setupObserver()
     }
@@ -37,4 +40,5 @@ import androidx.viewbinding.ViewBinding
     open fun setupObserver(){
 
     }
-}
+        abstract fun init()
+    }
